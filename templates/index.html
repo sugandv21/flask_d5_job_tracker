@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{{ url_for('main.add_application') }}">Add Application</a>
+<table border="1">
+<tr><th>ID</th><th>Name</th><th>Email</th><th>Job Title</th><th>Status</th><th>Actions</th></tr>
+{% for a in applications %}
+<tr>
+<td>{{ a.id }}</td>
+<td>{{ a.name }}</td>
+<td>{{ a.email }}</td>
+<td>{{ a.job_title }}</td>
+<td>{{ a.status }}</td>
+<td>
+  <a href="{{ url_for('main.edit_application', id=a.id) }}">Edit</a>
+  <a href="{{ url_for('main.delete_application', id=a.id) }}">Delete</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

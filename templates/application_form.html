@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }} {{ form.name() }} <br>
+    {{ form.email.label }} {{ form.email() }} <br>
+    {{ form.job_title.label }} {{ form.job_title() }} <br>
+    {{ form.status.label }} {{ form.status() }} <br>
+    {{ form.submit() }}
+</form>
+<a href="{{ url_for('main.index') }}">Back to list</a>
+{% endblock %}
